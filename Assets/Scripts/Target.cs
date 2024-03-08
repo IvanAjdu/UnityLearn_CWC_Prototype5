@@ -6,8 +6,8 @@ public class Target : MonoBehaviour
 {
     private Rigidbody targetRb;
 
-    private float minForce = 11f;
-    private float maxForce = 17f;
+    private float minForce = 10f;
+    private float maxForce = 15f;
     private float torqueRange = 10;
     private float xSpawnRange = 6f;
     private float ySpawnPos = -1f;
@@ -20,6 +20,16 @@ public class Target : MonoBehaviour
         targetRb.AddTorque(RandomTorque(), RandomTorque(), RandomTorque());
 
         transform.position = RandomSpawnPos();
+    }
+
+    private void OnMouseDown()
+    {
+        Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Destroy(gameObject);
     }
 
     Vector3 RandomSpawnPos()
