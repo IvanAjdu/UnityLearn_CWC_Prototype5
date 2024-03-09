@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     IEnumerator SpawnTargets()
@@ -38,6 +38,10 @@ public class GameManager : MonoBehaviour
     public void UpdateScore(int scoreToAdd)
     {
         score += scoreToAdd;
+        if (score < 0)
+        {
+            score = 0;
+        }
         scoreText.text = "Score : " + score;
     }
 }
